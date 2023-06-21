@@ -1,11 +1,11 @@
+import { createStage } from "../gameHelpers";
 import { Display, Stage, StartButton } from "./index";
 
 // { callback }
 const Tetris = () => {
   return (
     <>
-      holis
-      <Stage />
+      <Stage stage={createStage()} />
       <aside>
         <div>
           <Display text="Score" />
