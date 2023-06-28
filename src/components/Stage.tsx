@@ -1,4 +1,5 @@
 import Cell from "./Cell";
+import { StyledStage } from "./styles";
 
 interface IStage {
   stage: Array<Array<Array<number | string>>>;
@@ -6,13 +7,13 @@ interface IStage {
 
 const Stage = ({ stage }: IStage) => {
   return (
-    <div>
+    <StyledStage width={stage[0].length} height={stage.length}>
       {stage.map((row) =>
         row.map((cell, x) => {
           return <Cell key={x} type={cell[0]} />;
         })
       )}
-    </div>
+    </StyledStage>
   );
 };
 
