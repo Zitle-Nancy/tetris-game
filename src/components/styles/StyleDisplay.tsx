@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IDisplay {
-  gameOver: string;
+  gameOver?: string;
 }
 
 export const StyledDisplay = styled.div<IDisplay>`
