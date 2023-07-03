@@ -2,7 +2,7 @@ import Cell from "./Cell";
 import { StyledStage } from "./styles";
 
 interface IStage {
-  stage: Array<Array<Array<number | string>>>;
+  stage: (string | number)[][][];
 }
 
 const Stage = ({ stage }: IStage) => {
