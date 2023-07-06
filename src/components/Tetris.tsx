@@ -20,7 +20,7 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
 
   const { player, updatePlayerPos, resetPlayer } = usePlayer();
-  const { stage, setStage } = useStage();
+  const { stage, setStage } = useStage({ player, resetPlayer });
 
   const movePlayer = (direction: number) => {
     updatePlayerPos({ x: direction, y: 0, collided: false });
