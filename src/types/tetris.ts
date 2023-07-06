@@ -3,4 +3,3 @@ export interface ITetris {
   y: number;
   collided: boolean;
 }
-
