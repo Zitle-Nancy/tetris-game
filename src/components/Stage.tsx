@@ -7,7 +7,7 @@ interface IStage {
 
 const Stage = ({ stage }: IStage) => {
   return (
-    <StyledStage width={stage[0].length} height={stage.length}>
+    <StyledStage width={stage[0]?.length} height={stage?.length}>
       {stage.map((row) =>
         row.map((cell, x) => {
           return <Cell key={x} type={cell[0]} />;
