@@ -1,3 +1,4 @@
+import { IPlayer } from './player';
 import {ITetris}  from './tetris';
 
-export {type ITetris}
+export {type ITetris, type IPlayer}
