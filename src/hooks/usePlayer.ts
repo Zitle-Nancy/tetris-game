@@ -10,17 +10,24 @@ export const usePlayer = () => {
     collided: false
   });
 
-  const updatePlayerPos = ({x, y, collided}: {x: number, y: number, collided: boolean}) => {
+  interface IPlayerPros {
+    x: number,
+    y: number,
+    collided?: boolean
+  }
+  const updatePlayerPos = (props: IPlayerPros) => {
+    const {x, y, collided} = props;
+
     setPlayer((prev) => ({
       ...prev,
       pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
-      collided
+      collided: collided ? collided : prev.collided
     }));
   };
 
   const resetPlayer = useCallback(() => {
     setPlayer({
-      pos: {x: STAGE_WIDTH / 2 - 2, y:0},
+      pos: {x: STAGE_WIDTH / 2 - 2, y: 0},
       tetromino: randomTetromino().shape,
       collided: false
     })
