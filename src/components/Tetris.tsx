@@ -22,9 +22,10 @@ const Tetris = () => {
   const { player, updatePlayerPos, resetPlayer } = usePlayer();
   const { stage, setStage } = useStage({ player, resetPlayer });
 
+  // move left and right
   const movePlayer = (direction: number) => {
     if (!checkCollision(player, stage, { x: direction, y: 0 })) {
-      updatePlayerPos({ x: direction, y: 0, collided: true }); // check collided false
+      updatePlayerPos({ x: direction, y: 0, collided: false });
     }
   };
 
