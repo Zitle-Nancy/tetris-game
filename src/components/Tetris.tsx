@@ -8,6 +8,7 @@ import useStage from "../hooks/useStage";
 import { createStage, checkCollision } from "../gameHelpers";
 
 const LEFT_KEYCODE = 37;
+const UP_KEYCODE = 38;
 const RIGHT_KEYCODE = 39;
 const DOWN_KEYCODE = 40;
 const MOVE_LEFT = -1;
@@ -19,7 +20,7 @@ const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
 
-  const { player, updatePlayerPos, resetPlayer } = usePlayer();
+  const { player, updatePlayerPos, resetPlayer, playerRotate } = usePlayer();
   const { stage, setStage } = useStage({ player, resetPlayer });
 
   // move left and right
@@ -64,6 +65,8 @@ const Tetris = () => {
       if (keyCode === DOWN_KEYCODE) {
         dropPlayer();
         return;
+      } else if (keyCode === UP_KEYCODE) {
+        playerRotate(stage, 1);
       }
     }
   };

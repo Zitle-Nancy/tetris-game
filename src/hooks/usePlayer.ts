@@ -17,15 +17,21 @@ export const usePlayer = () => {
   }
 
   const rotate = (matrix: any, direction: any) => {
+    debugger
     // make the rows to become cols (transpose)
-    const rotatedTetro = matrix.map((_: number[], index: number) => matrix.map((col: []) => col[index]))
+    const rotatedTetro = matrix.map((_: number[], index: number) => matrix.map((col: any) => col[index]))
     
     // reverse each row  to get a rotated matrix
     if(direction > 0) return rotatedTetro.map((row: any) => row.reverse());
+    return rotatedTetro.reverse()
   }
 
   const playerRotate = (stage: any, direction: any) => {
+    debugger
+    const clonedPlayer = JSON.parse(JSON.stringify(player))
+    clonedPlayer.tetromino = rotate(clonedPlayer.tetromino, direction)
 
+    setPlayer(clonedPlayer)
   }
 
 
@@ -48,7 +54,7 @@ export const usePlayer = () => {
   }, [])
   
 
-  return {player,updatePlayerPos,resetPlayer};
+  return {player,updatePlayerPos,resetPlayer, playerRotate};
 };
 
 export default usePlayer;
