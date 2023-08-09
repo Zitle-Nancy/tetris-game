@@ -15,6 +15,20 @@ export const usePlayer = () => {
     y: number,
     collided?: boolean
   }
+
+  const rotate = (matrix: any, direction: any) => {
+    // make the rows to become cols (transpose)
+    const rotatedTetro = matrix.map((_: number[], index: number) => matrix.map((col: []) => col[index]))
+    
+    // reverse each row  to get a rotated matrix
+    if(direction > 0) return rotatedTetro.map((row: any) => row.reverse());
+  }
+
+  const playerRotate = (stage: any, direction: any) => {
+
+  }
+
+
   const updatePlayerPos = (props: IPlayerPros) => {
     const {x, y, collided} = props;
 
